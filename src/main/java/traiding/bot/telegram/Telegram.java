@@ -26,7 +26,7 @@ public class Telegram {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public void sendMessage(Signal signal) throws JsonProcessingException {
+    public MessageView sendMessage(Signal signal) throws JsonProcessingException {
         String pathRequest = telegramUtils.convertToPathRequest(DictionaryTelegram.SEND_MESSAGE);
 
         MessageView messageView = new MessageView(DictionaryTelegram.CHAT_ID.getCode(), telegramUtils.convertToMessage(signal));
@@ -38,6 +38,8 @@ public class Telegram {
         HttpEntity<String> request = new HttpEntity<>(json, headers);
 
         restTemplate.postForLocation(pathRequest, request);
+
+        return messageView;
     }
 
 }

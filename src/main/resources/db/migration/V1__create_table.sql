@@ -9,3 +9,11 @@ CREATE TABLE all_signals (
 );
 
 ALTER TABLE all_signals comment = 'Все сигналы';
+
+CREATE TABLE messages (
+     m_id INT PRIMARY KEY AUTO_INCREMENT,
+     m_date TIMESTAMP,
+     m_message VARCHAR(255)
+);
+
+ALTER TABLE all_signals comment = 'Все сообщения';
