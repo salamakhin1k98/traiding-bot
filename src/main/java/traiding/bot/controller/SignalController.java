@@ -24,7 +24,7 @@ public class SignalController {
     private Signal create(@RequestBody Signal signal) {
         try {
             telegram.sendMessage(signal);
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return signalService.save(signal);
