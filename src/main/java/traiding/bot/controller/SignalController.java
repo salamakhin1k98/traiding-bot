@@ -32,7 +32,8 @@ public class SignalController {
             Message message = new Message();
             message.setText(messageView.getText());
             messageService.save(message);
-        } catch (JsonProcessingException e) {
+            telegram.sendMessage(signal);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return signalService.save(signal);
